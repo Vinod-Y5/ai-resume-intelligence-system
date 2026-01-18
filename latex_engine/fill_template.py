@@ -1,7 +1,11 @@
 from jinja2 import Template
 import subprocess
+import os
 
 def fill_latex(data):
+    # Ensure output directory exists (important for Streamlit Cloud)
+    os.makedirs("output", exist_ok=True)
+
     with open("latex_engine/template.tex") as f:
         template = Template(f.read())
 
